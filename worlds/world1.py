@@ -81,17 +81,17 @@ class World1(Entity):
                                                 (round(camera.world_position.x), round(camera.world_position.z)) == (10, 11) or\
                                                     (round(camera.world_position.x), round(camera.world_position.z)) == (11, 10) or\
                                                         (round(camera.world_position.x), round(camera.world_position.z)) == (7, 10):
-                            if self.door2.rotation_y <= -90:
-                                self.door2.rotation_y += held_keys['e'] * time.dt * 50
-                                self.open = True
-                            elif self.door2.rotation_y >= 0:
-                                self.door2.rotation_y -= held_keys['e'] * time.dt * 50
-                                self.open = False
-                            else:
-                                if self.open == True:
-                                    self.door2.rotation_y += held_keys['e'] * time.dt * 50
-                                else:
-                                    self.door2.rotation_y -= held_keys['e'] * time.dt * 50
+                                                            if self.door2.rotation_y <= -90:
+                                                                self.door2.rotation_y += held_keys['e'] * time.dt * 50
+                                                                self.open = True
+                                                            elif self.door2.rotation_y >= 0:
+                                                                self.door2.rotation_y -= held_keys['e'] * time.dt * 50
+                                                                self.open = False
+                                                            else:
+                                                                if self.open == True:
+                                                                    self.door2.rotation_y += held_keys['e'] * time.dt * 50
+                                                                else:
+                                                                    self.door2.rotation_y -= held_keys['e'] * time.dt * 50
 
         if self.is_enabled == True and self.player.position.y <= -30:
             self.player.position = (0, 5, 0)
