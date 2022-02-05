@@ -15,7 +15,7 @@ class Player(Entity):
         self.collider = BoxCollider(self, center = Vec3(0, 0, 0), size = Vec3(1, 2, 1))
         mouse.locked = True
         camera.parent = self
-        camera.position = (0, 2, 0)
+        camera.position = (0, 1, 0)
         camera.rotation = (0, 0, 0)
         camera.fov = 100
         self.velocity_x, self.velocity_y, self.velocity_z = velocity
@@ -162,7 +162,7 @@ class Player(Entity):
             if self.jump_count < self.MAXJUMP:
                 self.jump()
         if key == "shift":
-            if camera.position == (0, 1.5, 0):
-                camera.position = (0, 2, 0)
-            elif camera.position == (0, 2, 0):
-                camera.position = (0, 1.5, 0)
+            if camera.position == (0, 0.5, 0):
+                camera.position = (0, 1, 0)
+            elif camera.position == (0, 1, 0):
+                camera.position = (0, 0.5, 0)

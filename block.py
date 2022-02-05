@@ -2,7 +2,7 @@ from ursina import *
 
 # Home
 class Home(Entity):
-    def __init__(self, position = (0, 0, 0), rotation = (0, 0, 0), scale = (8, 8, 8)):
+    def __init__(self, position = (0, 0, 0), rotation = (0, 0, 0), scale = (5, 5, 5)):
         super().__init__(
             model = "home",
             texture = "house",
@@ -14,11 +14,11 @@ class Home(Entity):
 
 # Home Door
 class Door(Entity):
-    def __init__(self, position = (0, 0, 0), rotation = (0, 0, 0), scale = (8, 8, 8)):
+    def __init__(self, position = (0, 0, 0), rotation = (0, 0, 0), scale = (5, 5, 5)):
         super().__init__(
             model = "door",
             texture = "house",
-            collider = 'mesh',
+            collider = "mesh",
             rotation = rotation,
             position = position,
             scale = scale
@@ -42,6 +42,18 @@ class Sun(Entity):
         super().__init__(
             model = "sun",
             texture = "sun",
+            collider = 'mesh',
+            position = position,
+            rotation = rotation,
+            scale = scale
+        )
+
+# Table
+class Table(Entity):
+    def __init__(self, position = (0, 0, 0), rotation = (0, 0, 0), scale = (1, 1, 1)):
+        super().__init__(
+            model = "table",
+            texture = "house",
             collider = 'mesh',
             position = position,
             rotation = rotation,

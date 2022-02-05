@@ -13,10 +13,9 @@ window.fps_counter.disable()
 
 window.exit_button = False
 
-normalSpeed = 2
-boostSpeed  = 3
+normalSpeed = 1.5
 
-normalJump = 0.3
+normalJump = 0.2
 
 player = Player((0, 5, 0), 'cube', controls="wasd") 
 player.SPEED = normalSpeed
