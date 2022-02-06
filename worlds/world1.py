@@ -1,4 +1,3 @@
-from msilib import Table
 from ursina import *
 import sys
 from block import *
@@ -22,7 +21,10 @@ class World1(Entity):
         self.home = Home((10, -10, 0))
         self.sun = Sun((500, 500, 500))
         self.table = Table((13.5, -10, 0))
+        self.chair = Chair((13.5, -10, -1))
 
+        self.is_sit = False
+        self.sit = False
         self.open = False
 
     def disable(self):
@@ -43,6 +45,17 @@ class World1(Entity):
 
     def speed(self):
         self.player.SPEED = normalSpeed
+
+    def input(self, key):
+        if key == 'e':
+            if self.sit == True:
+                self.player.position = (13.5, -9.3, -1.1)
+                self.is_sit = True
+        if key == 'q':
+            if self.is_sit == True:
+                self.player.position = (13.5, -9.3, -2)
+                self.sit = False
+                self.is_sit = False
 
     def update(self):
         print((round(camera.world_position.x), round(camera.world_position.z)))
@@ -88,6 +101,15 @@ class World1(Entity):
                                                         self.door2.rotation_y += held_keys['e'] * time.dt * 50
                                                     else:
                                                         self.door2.rotation_y -= held_keys['e'] * time.dt * 50
+
+        if (round(camera.world_position.x), round(camera.world_position.z)) == (13, -1) or\
+            (round(camera.world_position.x), round(camera.world_position.z)) == (12, -1) or\
+                (round(camera.world_position.x), round(camera.world_position.z)) == (12, -2) or\
+                    (round(camera.world_position.x), round(camera.world_position.z)) == (14, -2) or\
+                        (round(camera.world_position.x), round(camera.world_position.z)) == (13, -2):
+                            self.sit = True                            
+        else:
+            self.sit = False
 
         if self.is_enabled == True and self.player.position.y <= -30:
             self.player.position = (0, 5, 0)

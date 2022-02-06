@@ -59,3 +59,15 @@ class Table(Entity):
             rotation = rotation,
             scale = scale
         )
+
+# Chair
+class Chair(Entity):
+    def __init__(self, position = (0, 0, 0), rotation = (0, 0, 0), scale = (0.06, 0.06, 0.06)):
+        super().__init__(
+            model = "chair",
+            texture = "chair",
+            collider = 'mesh',
+            position = position,
+            rotation = rotation,
+            scale = scale
+        )
